@@ -5,9 +5,15 @@ $array = json_decode($string, true);
 
 if(isset($_POST['todoItem']))
 {
-    array_push($array, $_POST['todoItem']);
-    $array_converted = json_encode($array);
-    file_put_contents('data/todoList.json', $array_converted);
+    $new_item=
+    [
+        'text' => $_POST['todoItem'],
+        'done' => 'true'
+    ];
+    
+    array_push($array, $new_item);
+    $array_encoded = json_encode($array);
+    file_put_contents('data/todo-list.json', $array_encoded);
 }
 
 header('Content-Type: application/json');
