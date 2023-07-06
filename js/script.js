@@ -31,9 +31,5 @@ createApp({
             })
         },
 
-        changeItemStatus(index) {
-            this.todoList[index].done = !this.todoList[index].done;
-        },
-
     },
 }).mount('#app');
