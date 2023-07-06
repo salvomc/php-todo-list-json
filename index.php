@@ -15,11 +15,26 @@
         <title>ToDoList</title>
     </head>
     <body>
-        <div id="app">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 mt-5 text-center">
-                            <h1>My ToDoList</h1>
+        <div class="c-pers">    
+            <div id="app">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                                <h1 class="text-light">My ToDoList</h1>
+                                <ul class="list-group list-group-flush border border-1 rounded">
+                                    <li v-for="(item, index) in todoList" :key="index" class="list-group-item"> {{ item.text }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="input-group mb-3">
+                                    <input type="text" @keyup.enter="updateList" v-model="todoItem" placeholder="New Task" class="form-control mt-2">
+                                    <button type="button" @click="updateList" class="btn btn-success mt-2" id="button-add">Add Task</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
